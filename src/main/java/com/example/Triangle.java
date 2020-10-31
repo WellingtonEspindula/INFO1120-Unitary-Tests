@@ -1,11 +1,6 @@
 package com.example;
 
 public class Triangle {
-    public enum TriangleType {
-        ISOSCELES,
-        EQUILATERAL,
-        SCALENE
-    };
 
     private int sideA;
     private int sideB;
@@ -17,29 +12,32 @@ public class Triangle {
         this.sideC = sideC;
     }
 
-
     /**
      * Checks if the Triangle is valid
+     *
      * @return True if triangle is valid. False otherwise
      */
     public boolean isValid() {
         return areAllTheSidesPositives() && doTheSidesSatisfyTheTriangleInequality();
     }
 
-    private boolean doTheSidesSatisfyTheTriangleInequality() {
-        return TriangleUtils.doTheSidesSatisfyTheTriangleInequality(getSideA(), getSideB(), getSideC());
+    private boolean areAllTheSidesPositives() {
+        return ShapeUtils.areAllSidesPositives(sideA, sideB, sideC);
     }
 
-    private boolean areAllTheSidesPositives() {
-        return TriangleUtils.areAllTheSidesPositives(getSideA(), getSideB(), getSideC());
+    private boolean doTheSidesSatisfyTheTriangleInequality() {
+        return ((Math.abs(sideB - sideC) < sideA) && (sideA < (sideB + sideC))) &&
+                ((Math.abs(sideA - sideC) < sideB) && (sideB < (sideA + sideC))) &&
+                ((Math.abs(sideA - sideB) < sideC) && (sideC < (sideA + sideB)));
     }
 
     /**
      * Returns the Triangle type using its sides measures
-     * @return Returns the Triangle type. If triangle isn't valid, returns null;
+     *
+     * @return Returns the Triangle type (ISOSCELES, EQUILATERAL or SCALENE). If triangle isn't valid, returns null;
      */
     public TriangleType getTriangleType() {
-        if (isValid()){
+        if (isValid()) {
             if (isEquilateral())
                 return TriangleType.EQUILATERAL;
             else if (isIsosceles())
@@ -50,16 +48,29 @@ public class Triangle {
         return null;
     }
 
+    private boolean isEquilateral() {
+        return ShapeUtils.areAllSidesEquals(sideA, sideB, sideC);
+    }
+
     private boolean isIsosceles() {
-        return TriangleUtils.isIsosceles(getSideA(), getSideB(), getSideC());
+        return ShapeUtils.howManyEqualsSideItHas(sideA, sideB, sideC) == 2;
     }
 
     private boolean isScalene() {
-        return TriangleUtils.isScalene(getSideA(), getSideB(), getSideC());
+        return ShapeUtils.areAllSidesDifferent(sideA, sideB, sideC);
     }
 
-    private boolean isEquilateral() {
-        return TriangleUtils.isEquilateral(getSideA(), getSideB(), getSideC());
+
+    public void setSideA(int sideA) {
+        this.sideA = sideA;
+    }
+
+    public void setSideB(int sideB) {
+        this.sideB = sideB;
+    }
+
+    public void setSideC(int sideC) {
+        this.sideC = sideC;
     }
 
     public int getSideA() {

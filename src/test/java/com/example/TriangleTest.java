@@ -68,63 +68,62 @@ public class TriangleTest {
     public void getTriangleType() {
         // Equilateral cases
         // Default condition
-        mTriangle = new Triangle(3, 3,3);
-        assertEquals(Triangle.TriangleType.EQUILATERAL, mTriangle.getTriangleType());
+        mTriangle = new Triangle(3, 3, 3);
+        assertEquals(TriangleType.EQUILATERAL, mTriangle.getTriangleType());
 
 //        mTriangle = new Triangle((Integer.MAX_VALUE/2)-2, (Integer.MAX_VALUE/2)-2, (Integer.MAX_VALUE/2)-2);
 //        assertEquals(Triangle.TriangleType.EQUILATERAL, mTriangle.getTriangleType());
 
         // Exception cases: Zero sided Triangle and Negative sided Triangle
-        mTriangle = new Triangle(0, 0,0);
-        assertNotEquals(Triangle.TriangleType.EQUILATERAL, mTriangle.getTriangleType());
+        mTriangle = new Triangle(0, 0, 0);
+        assertNotEquals(TriangleType.EQUILATERAL, mTriangle.getTriangleType());
         assertNull(mTriangle.getTriangleType());
 
-        mTriangle = new Triangle(-1, -1,-1);
-        assertNotEquals(Triangle.TriangleType.EQUILATERAL, mTriangle.getTriangleType());
+        mTriangle = new Triangle(-1, -1, -1);
+        assertNotEquals(TriangleType.EQUILATERAL, mTriangle.getTriangleType());
 
 
         // Scalene cases
         // Default condition
-        mTriangle = new Triangle(3,4,5);
-        assertEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        mTriangle = new Triangle(3, 4, 5);
+        assertEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
-        mTriangle = new Triangle(5,4,3);
-        assertEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        mTriangle = new Triangle(5, 4, 3);
+        assertEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
-        mTriangle = new Triangle(5,3,4);
-        assertEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        mTriangle = new Triangle(5, 3, 4);
+        assertEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
-        mTriangle = new Triangle(4,3,5);
-        assertEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        mTriangle = new Triangle(4, 3, 5);
+        assertEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
-        mTriangle = new Triangle(4,5,3);
-        assertEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        mTriangle = new Triangle(4, 5, 3);
+        assertEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
 
-
-        mTriangle = new Triangle(-3,-4,-5);
+        mTriangle = new Triangle(-3, -4, -5);
         assertNull(mTriangle.getTriangleType());
-        assertNotEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        assertNotEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
-        mTriangle = new Triangle(3,-4,-5);
+        mTriangle = new Triangle(3, -4, -5);
         assertNull(mTriangle.getTriangleType());
-        assertNotEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        assertNotEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
         mTriangle = new Triangle(-3,4,-5);
         assertNull(mTriangle.getTriangleType());
-        assertNotEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        assertNotEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
         mTriangle = new Triangle(3,4,-5);
         assertNull(mTriangle.getTriangleType());
-        assertNotEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        assertNotEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
         mTriangle = new Triangle(-3,4,5);
         assertNull(mTriangle.getTriangleType());
-        assertNotEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        assertNotEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
         mTriangle = new Triangle(3,-4,5);
         assertNull(mTriangle.getTriangleType());
-        assertNotEquals(Triangle.TriangleType.SCALENE, mTriangle.getTriangleType());
+        assertNotEquals(TriangleType.SCALENE, mTriangle.getTriangleType());
 
 
         mTriangle = new Triangle(3,0,5);
